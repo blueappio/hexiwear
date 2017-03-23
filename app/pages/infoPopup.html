@@ -1,0 +1,19 @@
+<md-dialog aria-label="Lock" class="dialog" style="width: 320px; height: 280px">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 style="color: white">Device info</h2>
+            <md-button class="md-icon-button md-no-focus" aria-label="Close"
+                       style="position: absolute; right: 10px;" ng-click="cancel()">
+                <ng-md-icon icon="close"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="padding-top: 20px; padding-left: 15px; font-size: 15px" layout="column" flex="100">
+        <div style="margin-bottom: 10px">Device Name: HEXIWEAR</div>
+        <div style="margin-bottom: 10px">Device status: {{deviceStatus}}</div>
+        <div style="margin-bottom: 10px">Manufacturer Name: {{manufacturer}}</div>
+        <div style="margin-bottom: 10px">Firmware Version:<span ng-show="firmware != undefined && firmware != ''">{{firmware}}</span> <span ng-if="firmware == undefined || firmware == ''">Unknown</span></div>
+        <div style="margin-bottom: 10px">Battery Level: {{batteryLevel}}<span ng-show="batteryLevel != undefined && batteryLevel != 'Unknown'">%</span></div>
+        <div>Application Mode: {{currentMode}}</div>
+    </md-dialog-content>
+</md-dialog>

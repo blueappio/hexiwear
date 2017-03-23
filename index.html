@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Origin Trial Token -->
+    <meta http-equiv="origin-trial"
+          content="AkK15PCT/JQzZOG2MuAyNPO4fR1U0rtIhLAogFay1cDTMLL2ulyBPKWiTiGdPa5FIzAHDC2yC+7mF/YBe+tI0g8AAABaeyJvcmlnaW4iOiAiaHR0cHM6Ly92ZW5zaS5naXRodWIuaW86NDQzIiwgImZlYXR1cmUiOiAiV2ViQmx1ZXRvb3RoIiwgImV4cGlyeSI6IDE0NzMyNjQ4NDV9"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hexiwear</title>
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
+    <link href="app/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="app/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+    <script src="//vensi.github.io/blueapp.io/latest/blueapp.io.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/hexiwear.js"></script>
+</head>
+
+<body ng-app="hexiwear" class="thing">
+
+<div ng-controller="mainController as main" md-theme-watch="true">
+    <div ng-show="toast" id="toaster"></div>
+
+    <div class="md-toolbar-tools">
+        <h2><img src="./app/images/HW-logo.png" style="height: 33px;" /> HEXIWEAR APP</h2>
+
+        <h2 ng-hide="hexiwear.deviceInfoData.batteryData == undefined" style="padding-top: 7px; position: absolute; right: 90px">
+            &nbsp;{{ hexiwear.deviceInfoData.batteryData }} %
+        </h2>
+        <div layout="row" layout-align="left left" ng-hide="hexiwear.deviceInfoData.batteryData == undefined" style="position: absolute; right: 60px; top: 20px">
+            <div layout="row" layout-align="center center" style="margin-right: 0; padding-right: 0">
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData == undefined" icon="battery_unknown" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData>95" icon="battery_full" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=95 && hexiwear.deviceInfoData.batteryData>85" icon="battery_90" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=85 && hexiwear.deviceInfoData.batteryData>75" icon="battery_80" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=75 && hexiwear.deviceInfoData.batteryData>55" icon="battery_60" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=55 && hexiwear.deviceInfoData.batteryData>35" icon="battery_50" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=35 && hexiwear.deviceInfoData.batteryData>25" icon="battery_30" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=25 && hexiwear.deviceInfoData.batteryData>15" icon="battery_20" style="fill: white" size="30"></ng-md-icon>
+                <ng-md-icon ng-if="hexiwear.deviceInfoData.batteryData<=15" icon="battery_alert" style="fill: white" size="30"></ng-md-icon>
+            </div>
+        </div>
+        <md-button class="md-icon-button" aria-label="Back" ng-click="infoPopup()" style="position: absolute; right: 20px">
+            <ng-md-icon icon="info_outline" style="fill:white" size="30"></ng-md-icon>
+        </md-button>
+    </div>
+
+    <div flex="100" class="appMode" layout-align="center center" style="text-align: center; background-color: #505050; color:white; padding: 10px; height: 60px">
+        <div ng-if="hexiwear.deviceInfoData.modeData == 0 && hexiwear.paired == true">Application Mode: None</div>
+        <div ng-if="hexiwear.deviceInfoData.modeData == 2 && hexiwear.paired == true">Application Mode: Sensor Tag</div>
+        <div ng-if="hexiwear.deviceInfoData.modeData == 5 && hexiwear.paired == true">Application Mode: Heart Rate</div>
+        <div ng-if="hexiwear.deviceInfoData.modeData == 6 && hexiwear.paired == true">Application Mode: Pedometer</div>
+        <div ng-if="hexiwear.connected && hexiwear.paired == false">Devices not paired</div>
+    </div>
+
+    <div flex="100" flex-gt-xs="100" ng-show="hexiwear.connected">
+
+        <div class="white-box p-10 card1 expanded" flex="100">
+            <div class="card1-clip expanded" flex="100" layout="column">
+                <button class="accordion1 active show">
+                    <div class="card1-collapsed-content slide">
+                        <div layout="row" layout-align="start center" flex="100" layout-wrap>
+                            <div class="circle-icon" layout="row" layout-align="center center">
+                                <ng-md-icon icon="shuffle" style="fill: white" size="25"></ng-md-icon>
+                            </div>
+                            <h3 class="pl-10">Motion data</h3>
+                        </div>
+                    </div>
+                </button>
+
+                <div class="card1-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                    <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/accColor.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Accelerometer</h3>
+                            </div>
+                            <div style="text-align: left;" layout="column" layout-align="center center">
+                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.acc.x == undefined" >---</label><label ng-show="hexiwear.motionData.acc.x != undefined" >{{hexiwear.motionData.acc.x}}&nbsp;g</label></label>
+                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.acc.y == undefined" >---</label><label ng-show="hexiwear.motionData.acc.y != undefined" >{{hexiwear.motionData.acc.y}}&nbsp;g</label></label>
+                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.acc.z == undefined" >---</label><label ng-show="hexiwear.motionData.acc.z != undefined" >{{hexiwear.motionData.acc.z}}&nbsp;g</label></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/3D_Gyroscope-no_text.png" style="width:98px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Gyroscope</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.gyro.x == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.x != undefined" >{{hexiwear.motionData.gyro.x}}&nbsp;deg/s</label></label>
+                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.gyro.y == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.y != undefined" >{{hexiwear.motionData.gyro.y}}&nbsp;deg/s</label></label>
+                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.gyro.z == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.z != undefined" >{{hexiwear.motionData.gyro.z}}&nbsp;deg/s</label></label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="boxLast" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/magColor.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                            </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Magnetometer</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.mag.x == undefined" >---</label><label ng-show="hexiwear.motionData.mag.x != undefined" >{{hexiwear.motionData.mag.x}}&nbsp;&#xb5;T</label></label>
+                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.mag.y == undefined" >---</label><label ng-show="hexiwear.motionData.mag.y != undefined" >{{hexiwear.motionData.mag.y}}&nbsp;&#xb5;T</label></label>
+                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.mag.z == undefined" >---</label><label ng-show="hexiwear.motionData.mag.z != undefined" >{{hexiwear.motionData.mag.z}}&nbsp;&#xb5;T</label></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="white-box p-10 card2 expanded" flex="100">
+            <div class="card2-clip expanded" flex="100" layout="column">
+                <button class="accordion2 active show">
+                    <div class="card2-collapsed-content slide">
+                        <div layout="row" layout-align="start center" flex="100" layout-wrap>
+                            <div class="circle-icon-weather" layout="row" layout-align="center center">
+                                <ng-md-icon icon="public" style="fill: white" size="28"></ng-md-icon>
+                            </div>
+                            <h3 class="pl-10">Weather data</h3>
+                        </div>
+                    </div>
+                </button>
+
+                <div class="card2-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                    <div class="box" layout="column" layout-xs="row" flex="25" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/light.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Ambient light</h3>
+                            </div>
+                            <div style="text-align: left;" layout="column" layout-align="center center">
+                                <div flex="60" class="weatherData"><div ng-show="hexiwear.weatherData.ambient_light == undefined" >---</div><div ng-show="hexiwear.weatherData.ambient_light != undefined" >{{hexiwear.weatherData.ambient_light}}&nbsp;%</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" layout="column" layout-xs="row" flex="25" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/temperature-icon.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Temperature</h3>
+                            </div>
+                            <div style="text-align: left;" layout="column" layout-align="center center">
+                                <div flex="60" class="weatherData"><div ng-show="hexiwear.weatherData.temperature == undefined" >---</div><div ng-show="hexiwear.weatherData.temperature != undefined" >{{hexiwear.weatherData.temperature}}&nbsp; &#8451;</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" layout="column" layout-xs="row" flex="25" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/hum2.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Humidity</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <div flex="60" class="weatherData"><div ng-show="hexiwear.weatherData.humidity == undefined" >---</div><div ng-show="hexiwear.weatherData.humidity != undefined" >{{hexiwear.weatherData.humidity}}&nbsp;%</div></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="boxLast" layout="column" layout-xs="row" flex="25" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/press.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Pressure</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <div flex="60" class="weatherData"><div ng-show="hexiwear.weatherData.pressure == undefined" >---</div><div ng-show="hexiwear.weatherData.pressure != undefined" >{{hexiwear.weatherData.pressure}}&nbsp;kPa</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="white-box p-10 card3 expanded" flex="100">
+            <div class="card3-clip expanded" flex="100" layout="column">
+                <button class="accordion3 active show">
+                    <div class="card3-collapsed-content slide">
+                        <div layout="row" layout-align="start center" flex="100" layout-wrap>
+                            <div class="circle-icon-health" layout="row" layout-align="center center">
+                                <ng-md-icon icon="directions_walk" style="fill: white" size="25"></ng-md-icon>
+                            </div>
+                            <h3 class="pl-10">Health data</h3>
+                        </div>
+                    </div>
+                </button>
+
+                <div class="card3-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                    <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/heart.png" style="width:88px;height:68px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Heart rate</h3>
+                            </div>
+                            <div style="text-align: left;" layout="column" layout-align="center center">
+                                <div flex="60" class="healthData"><div ng-show="hexiwear.healthData.heart_rate == undefined" >---</div><div ng-show="hexiwear.healthData.heart_rate != undefined" >{{hexiwear.healthData.heart_rate}}&nbsp;</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/steps.png" style="width:98px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Steps</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <div flex="60" class="healthData"><div ng-show="hexiwear.healthData.steps == undefined" >---</div><div ng-show="hexiwear.healthData.steps != undefined" >{{hexiwear.healthData.steps}}&nbsp;</div></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="boxLast" layout="column" layout-xs="row" flex="33" flex-xs="100">
+                        <div flex="50">
+                            <div style="height: 80px">
+                                <img ng-src="./app/images/cal2.png" style="width:78px;height:78px; margin-top: 10px"/>
+                            </div>
+                        </div>
+                        <div flex="50">
+                            <div style="margin-top: 10px">
+                                <h3>Calorie</h3>
+                            </div>
+                            <div style="text-align: left" layout="column" layout-align="center center">
+                                <div flex="60" class="healthData"><div ng-show="hexiwear.healthData.calorie == undefined" >---</div><div ng-show="hexiwear.healthData.calorie != undefined" >{{hexiwear.healthData.calorie}}&nbsp;</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
