@@ -245,7 +245,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
 
     /* Calling refresh data function */
     setInterval(() => {
-        if($scope.hexiwear.temperature != undefined){
+        if($scope.hexiwear.connected != undefined){
             $scope.hexiwear.refreshValues();
         }
     },1000);
