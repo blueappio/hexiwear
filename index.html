@@ -7,21 +7,24 @@
           content="AkK15PCT/JQzZOG2MuAyNPO4fR1U0rtIhLAogFay1cDTMLL2ulyBPKWiTiGdPa5FIzAHDC2yC+7mF/YBe+tI0g8AAABaeyJvcmlnaW4iOiAiaHR0cHM6Ly92ZW5zaS5naXRodWIuaW86NDQzIiwgImZlYXR1cmUiOiAiV2ViQmx1ZXRvb3RoIiwgImV4cGlyeSI6IDE0NzMyNjQ4NDV9"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hexiwear</title>
+    <script src="cordova.js"></script>
     <link rel="stylesheet"
-          href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
+          href="bower_components/angular-material/angular-material.min.css">
     <link href="app/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+    <link href="bower_components/angular-material-icons/angular-material-icons.css" rel="stylesheet">
     <link href="app/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
-    <script src="//vensi.github.io/blueapp.io/latest/blueapp.io.min.js"></script>
+    <link href="bower_components/openSans/openSans.css" rel="stylesheet">
+    <link href="bower_components/roboto-condensed/css/roboto-condensed.css" rel="stylesheet">
+    <link href="bower_components/raleway/raleway.css" rel="stylesheet">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="bower_components/blueapp.io/blueapp.io.min.js"></script>
+
     <script src="app/app.js"></script>
     <script src="app/services/hexiwear.js"></script>
 </head>
@@ -78,7 +81,7 @@
                     </div>
                 </button>
 
-                <div class="card1-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                <div class="card1-expanded-content slide" layout="row" layout-align="start start" layout-wrap>
                     <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
                         <div flex="50">
                             <div style="height: 80px">
@@ -90,9 +93,9 @@
                                 <h3>Accelerometer</h3>
                             </div>
                             <div style="text-align: left;" layout="column" layout-align="center center">
-                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.acc.x == undefined" >---</label><label ng-show="hexiwear.motionData.acc.x != undefined" >{{hexiwear.motionData.acc.x}}&nbsp;g</label></label>
-                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.acc.y == undefined" >---</label><label ng-show="hexiwear.motionData.acc.y != undefined" >{{hexiwear.motionData.acc.y}}&nbsp;g</label></label>
-                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.acc.z == undefined" >---</label><label ng-show="hexiwear.motionData.acc.z != undefined" >{{hexiwear.motionData.acc.z}}&nbsp;g</label></label>
+                                <label>x:&nbsp;<label ng-show="hexiwear.motionData.acc.x == undefined" >---</label><label ng-show="hexiwear.motionData.acc.x != undefined" >{{hexiwear.motionData.acc.x}}&nbsp;g</label></label>
+                                <label>y:&nbsp;<label ng-show="hexiwear.motionData.acc.y == undefined" >---</label><label ng-show="hexiwear.motionData.acc.y != undefined" >{{hexiwear.motionData.acc.y}}&nbsp;g</label></label>
+                                <label>z:&nbsp;<label ng-show="hexiwear.motionData.acc.z == undefined" >---</label><label ng-show="hexiwear.motionData.acc.z != undefined" >{{hexiwear.motionData.acc.z}}&nbsp;g</label></label>
                             </div>
                         </div>
                     </div>
@@ -108,9 +111,9 @@
                                 <h3>Gyroscope</h3>
                             </div>
                             <div style="text-align: left" layout="column" layout-align="center center">
-                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.gyro.x == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.x != undefined" >{{hexiwear.motionData.gyro.x}}&nbsp;deg/s</label></label>
-                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.gyro.y == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.y != undefined" >{{hexiwear.motionData.gyro.y}}&nbsp;deg/s</label></label>
-                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.gyro.z == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.z != undefined" >{{hexiwear.motionData.gyro.z}}&nbsp;deg/s</label></label>
+                                <label>x:&nbsp;<label ng-show="hexiwear.motionData.gyro.x == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.x != undefined" >{{hexiwear.motionData.gyro.x}}&nbsp;deg/s</label></label>
+                                <label>y:&nbsp;<label ng-show="hexiwear.motionData.gyro.y == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.y != undefined" >{{hexiwear.motionData.gyro.y}}&nbsp;deg/s</label></label>
+                                <label>z:&nbsp;<label ng-show="hexiwear.motionData.gyro.z == undefined" >---</label><label ng-show="hexiwear.motionData.gyro.z != undefined" >{{hexiwear.motionData.gyro.z}}&nbsp;deg/s</label></label>
                             </div>
                         </div>
 
@@ -126,9 +129,9 @@
                                 <h3>Magnetometer</h3>
                             </div>
                             <div style="text-align: left" layout="column" layout-align="center center">
-                                <label flex="60">x:&nbsp;<label ng-show="hexiwear.motionData.mag.x == undefined" >---</label><label ng-show="hexiwear.motionData.mag.x != undefined" >{{hexiwear.motionData.mag.x}}&nbsp;&#xb5;T</label></label>
-                                <label flex="60">y:&nbsp;<label ng-show="hexiwear.motionData.mag.y == undefined" >---</label><label ng-show="hexiwear.motionData.mag.y != undefined" >{{hexiwear.motionData.mag.y}}&nbsp;&#xb5;T</label></label>
-                                <label flex="60">z:&nbsp;<label ng-show="hexiwear.motionData.mag.z == undefined" >---</label><label ng-show="hexiwear.motionData.mag.z != undefined" >{{hexiwear.motionData.mag.z}}&nbsp;&#xb5;T</label></label>
+                                <label>x:&nbsp;<label ng-show="hexiwear.motionData.mag.x == undefined" >---</label><label ng-show="hexiwear.motionData.mag.x != undefined" >{{hexiwear.motionData.mag.x}}&nbsp;&#xb5;T</label></label>
+                                <label>y:&nbsp;<label ng-show="hexiwear.motionData.mag.y == undefined" >---</label><label ng-show="hexiwear.motionData.mag.y != undefined" >{{hexiwear.motionData.mag.y}}&nbsp;&#xb5;T</label></label>
+                                <label>z:&nbsp;<label ng-show="hexiwear.motionData.mag.z == undefined" >---</label><label ng-show="hexiwear.motionData.mag.z != undefined" >{{hexiwear.motionData.mag.z}}&nbsp;&#xb5;T</label></label>
                             </div>
                         </div>
                     </div>
@@ -149,7 +152,7 @@
                     </div>
                 </button>
 
-                <div class="card2-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                <div class="card2-expanded-content slide"  layout="row" layout-align="start start" layout-wrap>
                     <div class="box" layout="column" layout-xs="row" flex="25" flex-xs="100">
                         <div flex="50">
                             <div style="height: 80px">
@@ -229,7 +232,7 @@
                     </div>
                 </button>
 
-                <div class="card3-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>
+                <div class="card3-expanded-content slide"  layout="row" layout-align="start start" layout-wrap>
                     <div class="box" layout="column" layout-xs="row" flex="33" flex-xs="100">
                         <div flex="50">
                             <div style="height: 80px">
@@ -280,6 +283,56 @@
                 </div>
             </div>
         </div>
+
+        <!--<div class="white-box p-10 card4 expanded" flex="100">-->
+            <!--<div class="card4-clip expanded" flex="100" layout="column">-->
+                <!--<button class="accordion4 active show">-->
+                    <!--<div class="card4-collapsed-content slide">-->
+                        <!--<div layout="row" layout-align="start center" flex="100" layout-wrap>-->
+                            <!--<div class="circle-icon-alert" layout="row" layout-align="center center">-->
+                                <!--<ng-md-icon icon="import_export" style="fill: white" size="25"></ng-md-icon>-->
+                            <!--</div>-->
+                            <!--<h3 class="pl-10">Alert data</h3>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</button>-->
+
+                <!--<div class="card4-expanded-content slide" flex="100" layout="row" layout-align="start start" layout-wrap>-->
+                    <!--<div class="box" layout="column" layout-xs="row" flex="100" flex-xs="100">-->
+                        <!--<div flex="50">-->
+                            <!--<div style="height: 80px">-->
+                                <!--<ng-md-icon icon="access_time" size="75" style="width:98px;height:78px; margin-top: 10px; fill: #4a4a4a"></ng-md-icon>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div flex="50">-->
+                            <!--<div style="margin-top: 10px">-->
+                                <!--<h3>Set Date/Time</h3>-->
+                            <!--</div>-->
+                            <!--<div style="text-align: left; margin-bottom: 20px" layout="column" layout-align="center center">-->
+                                <!--<md-button class="md-raised" ng-click="sendNotifications()" style="width: 150px">Set current time</md-button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="boxLast" layout="column" layout-xs="row" flex="50" flex-xs="100">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div flex="50">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ng-md-icon icon="notifications_none" size="75" style="width:98px;height:78px; margin-top: 10px; margin-left: 25px; fill: #4a4a4a"></ng-md-icon>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<div flex="50">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div style="margin-top: 10px">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<h3>Send notifications</h3>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div style="text-align: left; margin-bottom: 20px" layout="column" layout-align="center center">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<md-button class="md-raised" ng-click="sendNotifications()" style="width: 150px">Send</md-button>&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;&lt;!&ndash;<div flex="60" class="healthData"><div ng-show="hexiwear.heart_rate == undefined" >-&#45;&#45;</div><div ng-show="hexiwear.heart_rate != undefined" >{{hexiwear.heart_rate}}&nbsp;</div></div>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
 

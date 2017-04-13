@@ -1,0 +1,27 @@
+{
+  "name": "anuraco",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.6.3",
+    "angular-material": "1.1.1",
+    "angular-ui-router": "^0.3.1",
+    "angular-material-icons": "0.7.1",
+    "blueapp.io": "latest",
+    "text-encoding": "^0.6.1",
+    "openSans": "https://google-fonts.azurewebsites.net/googleFonts/openSans?family=Open+Sans"
+  },
+  "resolutions": {
+    "angular": "1.6.3"
+  },
+  "overrides": {
+    "fontawesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.svg"
+      ]
+    }
+  }
+}

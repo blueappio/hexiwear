@@ -1,0 +1,47 @@
+{
+  "name": "roboto-condensed",
+  "version": "0.3.0",
+  "description": "Bower package providing the Roboto Condensed webfonts.",
+  "main": [
+    "./fonts/RobotoCondensed-Bold-webfont.eot",
+    "./fonts/RobotoCondensed-Bold-webfont.svg",
+    "./fonts/RobotoCondensed-Bold-webfont.ttf",
+    "./fonts/RobotoCondensed-Bold-webfont.woff",
+    "./fonts/RobotoCondensed-BoldItalic-webfont.eot",
+    "./fonts/RobotoCondensed-BoldItalic-webfont.svg",
+    "./fonts/RobotoCondensed-BoldItalic-webfont.ttf",
+    "./fonts/RobotoCondensed-BoldItalic-webfont.woff",
+    "./fonts/RobotoCondensed-Italic-webfont.eot",
+    "./fonts/RobotoCondensed-Italic-webfont.svg",
+    "./fonts/RobotoCondensed-Italic-webfont.ttf",
+    "./fonts/RobotoCondensed-Italic-webfont.woff",
+    "./fonts/RobotoCondensed-Light-webfont.eot",
+    "./fonts/RobotoCondensed-Light-webfont.svg",
+    "./fonts/RobotoCondensed-Light-webfont.ttf",
+    "./fonts/RobotoCondensed-Light-webfont.woff",
+    "./fonts/RobotoCondensed-Regular-webfont.eot",
+    "./fonts/RobotoCondensed-Regular-webfont.svg",
+    "./fonts/RobotoCondensed-Regular-webfont.ttf",
+    "./fonts/RobotoCondensed-Regular-webfont.woff"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidcunningham/roboto-condensed.git"
+  },
+  "keywords": [
+    "roboto",
+    "condensed",
+    "webfont",
+    "font",
+    "fontface"
+  ],
+  "author": "David Cunningham",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/davidcunningham/roboto-condensed/issues"
+  },
+  "homepage": "https://github.com/davidcunningham/roboto-condensed"
+}

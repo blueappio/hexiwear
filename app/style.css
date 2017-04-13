@@ -82,34 +82,34 @@ body {
     height: 70px;
     transition: all 0.5s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.24);
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: absolute;
     border-radius: 3px;
-//-webkit-transform: scale(1, 0.33);
-//-ms-transform: scale(1, 0.33);
-//transform: scale(1, 0.33);
+/*//-webkit-transform: scale(1, 0.33);*/
+/*//-ms-transform: scale(1, 0.33);*/
+/*//transform: scale(1, 0.33);*/
     cursor: pointer;
     will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    /*-webkit-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
 }
 
 .card2, .card3, .card4 {
     background: #fff;
-//width: 18em;
+/*//width: 18em;*/
     height: 70px;
     transition: all 0.5s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.24);
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: absolute;
     border-radius: 3px;
-//-webkit-transform: scale(1, 0.33);
-//-ms-transform: scale(1, 0.33);
-//transform: scale(1, 0.33);
-//cursor: pointer;
+/*//-webkit-transform: scale(1, 0.33);*/
+/*//-ms-transform: scale(1, 0.33);*/
+/*//transform: scale(1, 0.33);*/
+/*//cursor: pointer;*/
     will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    /*-webkit-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
 }
 
 .separator {
@@ -177,18 +177,20 @@ body {
     z-index: 3;
     position: relative;
     top: 16em;
+    visibility: visible;
     transition: opacity 0.25s ease, -webkit-transform 0.5s ease;
     transition: transform 0.5s ease, opacity 0.25s ease;
     transition: transform 0.5s ease, opacity 0.25s ease, -webkit-transform 0.5s ease;
 //left: 1em;
     will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-
+    /*-webkit-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
+    height: 500px;
 }
 
 .card1-expanded-content.slide, .card2-expanded-content.slide, .card3-expanded-content.slide, .card4-expanded-content.slide {
     opacity: 1;
+    visibility: visible;
     transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
     transition: transform 0.5s ease, opacity 0.5s ease;
     transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
@@ -365,7 +367,7 @@ body {
         font-size: 105%
     }
     .card1.expanded{
-        height: 300px;
+        height: 350px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
         height: 250px;
@@ -392,7 +394,7 @@ body {
         font-size: 125%
     }
     .card1.expanded{
-        height: 350px;
+        height: 400px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
         height: 300px;
@@ -419,7 +421,7 @@ body {
         font-size: 155%
     }
     .card1.expanded{
-        height: 350px;
+        height: 400px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
         height: 300px;
@@ -446,7 +448,7 @@ body {
         font-size: 195%
     }
     .card1.expanded{
-        height: 300px;
+        height: 400px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
         height: 250px;
@@ -473,7 +475,7 @@ body {
         font-size: 255%
     }
     .card1.expanded, .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 400px;
+        height: 450px;
     }
     .weatherData {
         font-size: 40px;
@@ -1082,6 +1084,7 @@ button.accordion1, button.accordion2, button.accordion3, button.accordion4 {
     outline: none;
     transition: 0.4s;
     position: relative;
+    min-height: 50px;
 }
 
 

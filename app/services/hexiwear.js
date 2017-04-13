@@ -84,7 +84,7 @@ var Hexiwear = function () {
                         .then(function (service) {
                             /* Function for reading device information characteristics */
                             self.readDeviceInfo(service);
-                         }),
+                        }),
                     /* Getting battery data service */
                     server.getPrimaryService(BATT_SERVICE)
                         .then(function (service) {
@@ -126,7 +126,7 @@ var Hexiwear = function () {
             })
     };
 
-        /* ------- Hexiwear Handling Functions ------- */
+    /* ------- Hexiwear Handling Functions ------- */
 
     Hexiwear.prototype.readDeviceInfo = function (service) {
         Promise.all([
@@ -154,7 +154,7 @@ var Hexiwear = function () {
                 })
         ])
         /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading device info data failed. Error: ' + JSON.stringify(error));
             });
     };
@@ -180,7 +180,7 @@ var Hexiwear = function () {
                     });
             })
             /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading battery data failed. Error: ' + JSON.stringify(error));
             });
     };
@@ -231,7 +231,7 @@ var Hexiwear = function () {
                 })
         ])
         /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading motion data failed. Error: '+JSON.stringify(error));
             });
     };
@@ -284,7 +284,7 @@ var Hexiwear = function () {
                 })
         ])
         /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading weather data failed. Error: '+JSON.stringify(error));
             });
     };
@@ -309,7 +309,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.healthData.steps = value.getUint16(0);
+                            self.healthData.steps = Math.round(value.getUint16(0)/1000);
                             self.updateUI();
                         });
                 }),
@@ -326,7 +326,7 @@ var Hexiwear = function () {
                 })
         ])
         /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading health data failed. Error: '+JSON.stringify(error));
             });
     };
@@ -352,7 +352,7 @@ var Hexiwear = function () {
                     });
             })
             /* Error handling function */
-            .catch((error) => {
+            .catch(function(error) {
                 console.log('Reading application mode failed. Error: ' + JSON.stringify(error));
             });
     };
@@ -374,7 +374,7 @@ var Hexiwear = function () {
 }();
 
 /* Helper function for storing current mode data */
-var updateModeData = (value) => {
+var updateModeData = function(value) {
     hexiwear.deviceInfoData.modeData = value;
     switch (value){
         case 0:

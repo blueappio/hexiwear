@@ -3,80 +3,80 @@
 /* Angular module initialization */
 var app;
 (function(){
-  app = angular.module('hexiwear', ['ngMaterial', 'ngMdIcons'])
+    app = angular.module('hexiwear', ['ngMaterial', 'ngMdIcons'])
 
-  /* Color palette setup */
-      .config(function($mdThemingProvider) {
-          $mdThemingProvider.definePalette('blue-qb', {
-              '50': 'b0bbc1',
-              '100': '91afc1',
-              '200': '7ba7c1',
-              '300': '5b9bc1',
-              '400': '3a8ec1',
-              '500': '2988c1',
-              '600': '0a3b7a',
-              '700': '0a3b7a',
-              '800': '0a3b7a',
-              '900': '2193eb',
-              'A100': '0a3b7a',
-              'A200': '0a3b7a',
-              'A400': '0a3b7a',
-              'A700': '0a3b7a',
-              'contrastDefaultColor': 'light', // whether, by default, text (contrast)
-              // on this palette should be dark or light
+    /* Color palette setup */
+        .config(function($mdThemingProvider) {
+            $mdThemingProvider.definePalette('blue-qb', {
+                '50': 'b0bbc1',
+                '100': '91afc1',
+                '200': '7ba7c1',
+                '300': '5b9bc1',
+                '400': '3a8ec1',
+                '500': '2988c1',
+                '600': '0a3b7a',
+                '700': '0a3b7a',
+                '800': '0a3b7a',
+                '900': '2193eb',
+                'A100': '0a3b7a',
+                'A200': '0a3b7a',
+                'A400': '0a3b7a',
+                'A700': '0a3b7a',
+                'contrastDefaultColor': 'light', // whether, by default, text (contrast)
+                // on this palette should be dark or light
 
-              'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
-                  '200', '300', '400', 'A100'
-              ],
-              'contrastLightColors': undefined // could also specify this if default was 'dark'
-          });
+                'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+                    '200', '300', '400', 'A100'
+                ],
+                'contrastLightColors': undefined // could also specify this if default was 'dark'
+            });
 
-          $mdThemingProvider.definePalette('black-qb', {
-              '50': 'dddddd',
-              '100': 'a3a3a3',
-              '200': '797979',
-              '300': '525252',
-              '400': '363636',
-              '500': '121212',
-              '600': '000000',
-              '700': '000000',
-              '800': '000000',
-              '900': '000000',
-              'A100': '848484',
-              'A200': '848484',
-              'A400': '848484',
-              'A700': '848484',
-              'contrastDefaultColor': 'light', // whether, by default, text (contrast)
-              // on this palette should be dark or light
+            $mdThemingProvider.definePalette('black-qb', {
+                '50': 'dddddd',
+                '100': 'a3a3a3',
+                '200': '797979',
+                '300': '525252',
+                '400': '363636',
+                '500': '121212',
+                '600': '000000',
+                '700': '000000',
+                '800': '000000',
+                '900': '000000',
+                'A100': '848484',
+                'A200': '848484',
+                'A400': '848484',
+                'A700': '848484',
+                'contrastDefaultColor': 'light', // whether, by default, text (contrast)
+                // on this palette should be dark or light
 
-              'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
-                  '200', '300', '400', 'A100'
-              ],
-              'contrastLightColors': undefined // could also specify this if default was 'dark'
-          });
+                'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+                    '200', '300', '400', 'A100'
+                ],
+                'contrastLightColors': undefined // could also specify this if default was 'dark'
+            });
 
-          $mdThemingProvider.theme('default')
-              .primaryPalette('blue-qb', {
-                  'default': '600', // by default use shade 400 from the pink palette for primary intentions
-                  'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
-                  'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-                  'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-              })
-              .accentPalette('black-qb', {
-                  'default': '600', // by default use shade 400 from the pink palette for primary intentions
-                  'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
-                  'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-                  'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-              });
-          $mdThemingProvider.theme('success-toast');
-          $mdThemingProvider.theme('error-toast');
-          $mdThemingProvider.alwaysWatchTheme(true);
-      })
+            $mdThemingProvider.theme('default')
+                .primaryPalette('blue-qb', {
+                    'default': '600', // by default use shade 400 from the pink palette for primary intentions
+                    'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
+                    'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+                    'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                })
+                .accentPalette('black-qb', {
+                    'default': '600', // by default use shade 400 from the pink palette for primary intentions
+                    'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
+                    'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+                    'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                });
+            $mdThemingProvider.theme('success-toast');
+            $mdThemingProvider.theme('error-toast');
+            $mdThemingProvider.alwaysWatchTheme(true);
+        })
 })();
 
 app.run(['$document', '$window', function($document, $window) {
     var document = $document[0];
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', function(event) {
         var hasFocus = document.hasFocus();
         if (!hasFocus) $window.focus();
     });
@@ -86,7 +86,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     $scope.hexiwear = window.hexiwear;
 
     /* Defining info popup screen */
-    $scope.infoPopup = () => {
+    $scope.infoPopup = function() {
         $mdDialog.show({
             controller: 'infoController',
             templateUrl: 'app/pages/infoPopup.html',
@@ -103,14 +103,14 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     };
 
     /* Closing popup function */
-    $scope.cancel = () => {
+    $scope.cancel = function() {
         $mdDialog.cancel();
     };
 
     /* Success toast function */
-    $scope.hexiwear.onSuccess = (message) => {
+    $scope.hexiwear.onSuccess = function(message) {
         $scope.toast = true;
-        setTimeout(() => {
+        setTimeout(function() {
             $scope.toast = false;
         },3500);
         $mdToast.show(
@@ -124,9 +124,9 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     };
 
     /* Error toast function */
-    $scope.hexiwear.onError = (message) => {
+    $scope.hexiwear.onError = function(message) {
         $scope.toast = true;
-        setTimeout(() => {
+        setTimeout(function() {
             $scope.toast = false;
         },3500);
         $mdToast.show(
@@ -143,7 +143,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     // $scope.hexiwear.onSuccess('Connecting ....');
 
     /* UI update function */
-    $scope.hexiwear.updateUI = () => {
+    $scope.hexiwear.updateUI = function() {
         $scope.$apply();
     };
 
@@ -166,7 +166,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
             '</md-dialog-content>' +
             '</md-dialog>',
             locals: {}
-            });
+        });
     }
 
     /* Defining disconnect dialog */
@@ -193,7 +193,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     }
 
     /* Defining function for connecting */
-    $scope.hexiwear.loading = () => {
+    $scope.hexiwear.loading = function() {
         showLoadingIndicator($mdDialog, '', 'Connecting ...');
     };
 
@@ -203,7 +203,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     }
 
     /* Defining function for closing from the hexiwear class */
-    $scope.hexiwear.dismiss = () => {
+    $scope.hexiwear.dismiss = function() {
         dismissLoadingIndicator($mdDialog);
     };
 
@@ -234,18 +234,18 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     });
 
     /* Defining function for disconnect indicator */
-    $scope.hexiwear.disconnectIndicator = () => {
+    $scope.hexiwear.disconnectIndicator = function() {
         showDisconnectIndicator($mdDialog, '', 'Device disconnected');
     };
 
     /* On click event for setting date/time */
-    $scope.sendNotifications = () => {
-        $scope.hexiwear.setDateTime();
-    };
+    // $scope.sendNotifications = function() {
+    //     $scope.hexiwear.setDateTime();
+    // };
 
     /* Calling refresh data function */
-    setInterval(() => {
-        if($scope.hexiwear.temperature != undefined){
+    setInterval(function() {
+        if($scope.hexiwear.connected != undefined){
             $scope.hexiwear.refreshValues();
         }
     },1000);
@@ -264,8 +264,8 @@ app.controller('infoController', function($scope, $mdDialog, mode, manufacturer,
     $scope.manufacturer = manufacturer;
     $scope.firmware = firmware;
     $scope.batteryLevel = batteryLevel;
-    
-    $scope.cancel = () => {
+
+    $scope.cancel = function() {
         $mdDialog.cancel();
     };
 
