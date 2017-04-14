@@ -244,11 +244,7 @@ app.controller('mainController', function($scope, $mdDialog, $mdToast){
     // };
 
     /* Calling refresh data function */
-<<<<<<< HEAD
     setInterval(function() {
-=======
-    setInterval(() => {
->>>>>>> origin/master
         if($scope.hexiwear.connected != undefined){
             $scope.hexiwear.refreshValues();
         }

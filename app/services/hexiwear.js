@@ -245,7 +245,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.weatherData.ambient_light = value.getUint8(0);
+                            self.weatherData.ambient_light = value.getUint8(0, true);
                             self.updateUI();
                         });
                 }),
@@ -256,7 +256,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.weatherData.temperature = value.getInt16(0) / 100;
+                            self.weatherData.temperature = value.getInt16(0, true) / 100;
                             self.updateUI();
                         });
                 }),
@@ -267,7 +267,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.weatherData.humidity = value.getInt16(0) / 100;
+                            self.weatherData.humidity = value.getInt16(0, true) / 100;
                             self.updateUI();
                         });
                 }),
@@ -278,7 +278,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.weatherData.pressure = value.getInt16(0) / 100;
+                            self.weatherData.pressure = value.getInt16(0, true) / 100;
                             self.updateUI();
                         });
                 })
@@ -298,7 +298,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.healthData.heart_rate = value.getUint8(0);
+                            self.healthData.heart_rate = value.getUint8(0, true);
                             self.updateUI();
                         });
                 }),
@@ -309,7 +309,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.healthData.steps = Math.round(value.getUint16(0)/1000);
+                            self.healthData.steps = Math.round(value.getUint16(0, true));
                             self.updateUI();
                         });
                 }),
@@ -320,7 +320,7 @@ var Hexiwear = function () {
                     characteristic.readValue()
                         .then(function (value) {
                             /* Parsing characteristic readout */
-                            self.healthData.calorie = value.getUint16(0);
+                            self.healthData.calorie = value.getUint16(0, true);
                             self.updateUI();
                         });
                 })
