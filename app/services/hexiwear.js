@@ -84,18 +84,21 @@ var Hexiwear = function () {
                     /* Getting device information data service */
                     server.getPrimaryService(DEVICE_INFORMATION_SERVICE)
                         .then(function (service) {
+                            console.log("Device Information Service");
                             /* Function for reading device information characteristics */
                             self.readDeviceInfo(service);
                         }),
                     /* Getting battery data service */
                     server.getPrimaryService(BATT_SERVICE)
                         .then(function (service) {
+                            console.log("Battery Service");
                             /* Function for reading battery data characteristics */
                             self.readBattery(service);
                         }),
                     /* Getting motion data service */
                     server.getPrimaryService(MOTION_SERVICE)
                         .then(function (service) {
+                            console.log("Motion Service");
                             /* Function for reading motion data characteristics */
                             self.motionService = service;
                             self.readMotion(service);
@@ -103,6 +106,7 @@ var Hexiwear = function () {
                     /* Getting weather data service */
                     server.getPrimaryService(WEATHER_SERVICE)
                         .then(function (service) {
+                            console.log("Weather Service");
                             /* Function for reading weather data characteristics */
                             self.weatherService = service;
                             self.readWeather(service);
@@ -110,6 +114,7 @@ var Hexiwear = function () {
                     /* Getting health data service */
                     server.getPrimaryService(HEALTH_SERVICE)
                         .then(function (service) {
+                            console.log("Health Service");
                             /* Function for reading health data characteristics */
                             self.healthService = service;
                             self.readHealth(service);
@@ -117,6 +122,7 @@ var Hexiwear = function () {
                     /* Getting mode data service */
                     server.getPrimaryService(MODE_SERVICE)
                         .then(function (service) {
+                            console.log("Mode Service");
                             /* Function for reading mode data characteristics */
                             self.readMode(service);
                         })
