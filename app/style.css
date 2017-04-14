@@ -312,10 +312,10 @@ body {
         font-size: 85%;
     }
     .card1.expanded, .card3.expanded, .card4.expanded{
-        height: 450px;
+        height: 480px;
     }
     .card2.expanded{
-        height: 550px;
+        height: 580px;
     }
     .weatherData {
         margin-top: 10px;
@@ -340,10 +340,10 @@ body {
         font-size: 85%;
     }
     .card1.expanded{
-        height: 300px;
+        height: 330px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 250px;
+        height: 280px;
     }
     .weatherData {
         font-size: 25px;
@@ -367,10 +367,10 @@ body {
         font-size: 105%
     }
     .card1.expanded{
-        height: 350px;
+        height: 380px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 250px;
+        height: 280px;
     }
     .weatherData {
         font-size: 30px;
@@ -394,10 +394,10 @@ body {
         font-size: 125%
     }
     .card1.expanded{
-        height: 400px;
+        height: 430px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 300px;
+        height: 330px;
     }
     .weatherData {
         font-size: 35px;
@@ -421,10 +421,10 @@ body {
         font-size: 155%
     }
     .card1.expanded{
-        height: 400px;
+        height: 430px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 300px;
+        height: 330px;
     }
     .weatherData {
         font-size: 40px;
@@ -448,10 +448,10 @@ body {
         font-size: 195%
     }
     .card1.expanded{
-        height: 400px;
+        height: 430px;
     }
     .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 250px;
+        height: 280px;
     }
     .weatherData {
         font-size: 40px;
@@ -475,7 +475,7 @@ body {
         font-size: 255%
     }
     .card1.expanded, .card2.expanded, .card3.expanded, .card4.expanded{
-        height: 450px;
+        height: 480px;
     }
     .weatherData {
         font-size: 40px;
