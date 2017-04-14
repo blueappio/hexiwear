@@ -3,30 +3,30 @@
 var Hexiwear = function () {
 
     /* Defining UUIDs for services and characteristics */
-    const DEVICE_INFORMATION_SERVICE = "0000180a-0000-1000-8000-00805f9b34fb";
-    const MANUFACTURER_NAME = "00002A29-0000-1000-8000-00805f9b34fb";
-    const HARDWARE_REVISION = "00002A25-0000-1000-8000-00805f9b34fb";
-    const FIRMWARE_REVISION = "00002A26-0000-1000-8000-00805f9b34fb";
-    const MOTION_SERVICE = "00002000-0000-1000-8000-00805f9b34fb";
-    const ACCELEROMETER = "00002001-0000-1000-8000-00805f9b34fb";
-    const GYRO = "00002002-0000-1000-8000-00805f9b34fb";
-    const MAGNETOMETER = "00002003-0000-1000-8000-00805f9b34fb";
-    const WEATHER_SERVICE = "00002010-0000-1000-8000-00805f9b34fb";
-    const AMBIENT_LIGHT = "00002011-0000-1000-8000-00805f9b34fb";
-    const TEMPERATURE = "00002012-0000-1000-8000-00805f9b34fb";
-    const HUMIDITY = "00002013-0000-1000-8000-00805f9b34fb";
-    const PRESSURE = "00002014-0000-1000-8000-00805f9b34fb";
-    const HEALTH_SERVICE = "00002020-0000-1000-8000-00805f9b34fb";
-    const HEART_RATE = "00002021-0000-1000-8000-00805f9b34fb";
-    const STEPS = "00002022-0000-1000-8000-00805f9b34fb";
-    const CALORIE = "00002023-0000-1000-8000-00805f9b34fb";
-    const MODE_SERVICE = "00002040-0000-1000-8000-00805f9b34fb";
-    const APP_MODE = "00002041-0000-1000-8000-00805f9b34fb";
-    const BATT_SERVICE = "0000180f-0000-1000-8000-00805f9b34fb";
-    const BATTERY = "00002a19-0000-1000-8000-00805f9b34fb";
-    const APP_SERVICE = "00001800-0000-1000-8000-00805f9b34fb";
-    const NAME = "00002A00-0000-1000-8000-00805f9b34fb";
-    const DEVICE_NAME = 'HEXIWEAR';
+    var DEVICE_INFORMATION_SERVICE = "0000180a-0000-1000-8000-00805f9b34fb";
+    var MANUFACTURER_NAME = "00002A29-0000-1000-8000-00805f9b34fb";
+    var HARDWARE_REVISION = "00002A25-0000-1000-8000-00805f9b34fb";
+    var FIRMWARE_REVISION = "00002A26-0000-1000-8000-00805f9b34fb";
+    var MOTION_SERVICE = "00002000-0000-1000-8000-00805f9b34fb";
+    var ACCELEROMETER = "00002001-0000-1000-8000-00805f9b34fb";
+    var GYRO = "00002002-0000-1000-8000-00805f9b34fb";
+    var MAGNETOMETER = "00002003-0000-1000-8000-00805f9b34fb";
+    var WEATHER_SERVICE = "00002010-0000-1000-8000-00805f9b34fb";
+    var AMBIENT_LIGHT = "00002011-0000-1000-8000-00805f9b34fb";
+    var TEMPERATURE = "00002012-0000-1000-8000-00805f9b34fb";
+    var HUMIDITY = "00002013-0000-1000-8000-00805f9b34fb";
+    var PRESSURE = "00002014-0000-1000-8000-00805f9b34fb";
+    var HEALTH_SERVICE = "00002020-0000-1000-8000-00805f9b34fb";
+    var HEART_RATE = "00002021-0000-1000-8000-00805f9b34fb";
+    var STEPS = "00002022-0000-1000-8000-00805f9b34fb";
+    var CALORIE = "00002023-0000-1000-8000-00805f9b34fb";
+    var MODE_SERVICE = "00002040-0000-1000-8000-00805f9b34fb";
+    var APP_MODE = "00002041-0000-1000-8000-00805f9b34fb";
+    var BATT_SERVICE = "0000180f-0000-1000-8000-00805f9b34fb";
+    var BATTERY = "00002a19-0000-1000-8000-00805f9b34fb";
+    var APP_SERVICE = "00001800-0000-1000-8000-00805f9b34fb";
+    var NAME = "00002A00-0000-1000-8000-00805f9b34fb";
+    var DEVICE_NAME = 'HEXIWEAR';
 
     var self;
 
@@ -67,7 +67,9 @@ var Hexiwear = function () {
                 console.log("Discovering services");
                 self.dismiss();
                 self.server = server;
-                self.onSuccess('Connected with ' + server.name);
+                if(self.onSuccess) {
+                    self.onSuccess('Connected with ' + server.name);
+                }
                 self.connected = true;
                 /* Adding disconnection listener */
                 self.bluetoothDevice.on("gattserverdisconnected", function (event) {
