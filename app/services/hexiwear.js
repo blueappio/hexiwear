@@ -217,9 +217,9 @@ var Hexiwear = function () {
                         .then(function (value) {
                             /* Parsing characteristic readout */
                             self.paired = true;
-                            self.motionData.gyro.x = value.getInt16(0, true) / 100;
-                            self.motionData.gyro.y = value.getInt16(2, true) / 100;
-                            self.motionData.gyro.z = value.getInt16(4, true) / 100;
+                            self.motionData.gyro.x = value.getInt16(0, true);
+                            self.motionData.gyro.y = value.getInt16(2, true);
+                            self.motionData.gyro.z = value.getInt16(4, true);
                             self.updateUI();
                         });
                 }),
